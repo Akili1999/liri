@@ -46,16 +46,17 @@ function getMovie(movieName) {
         });
 };
 // This is where we get the information for the bands
-function getConcert(bandName){
-    axios.get("https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=codingbootcamp")
-    .then(function(band){
-        let artist = JSON.parse(artist);
+function getConcert(artist){
+    axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp")
+    .then(function(concert){
+        let artist = concert.data[0];
+        let artists = (artist.lineup).join(", ")
         console.log("");
         console.log(
-            `Artist: ${artist.data.lineup}\n`,
-            `Artist: ${artist.data.venue.name}\n`,
-            `Artist: ${artist.data.venue.city}\n`,
-            `Artist: ${artist.data.venue.country}\n`,
+            `Artist: ${artists}\n`,
+            `Venue: ${artist.venue.name}\n`,
+            `City: ${artist.venue.city}\n`,
+            `Country: ${artist.venue.country}\n`,
         );
         var concertDate = moment(artist.datetime).format("MM/DD/YY hh:00 A")
 
@@ -117,13 +118,13 @@ if (dataArr[0] === "spotify-this-song") {
             }
         };
         
-//if (dataArr[0] === "concert-this"){
-//    if (dataArr[1] === undefined){
-//         getConcert("Mastodon")
-//        } else {
-//             getConcert(dataArr[1])
-//            }
-//       }
+if (dataArr[0] === "concert-this"){
+  if (dataArr[1] === undefined){
+        getConcert("Mastodon")
+       } else {
+            getConcert(dataArr[1])
+           }
+      }
     });
 };
 
