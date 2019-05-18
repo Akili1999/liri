@@ -49,15 +49,15 @@ function getMovie(movieName) {
 function getConcert(bandName){
     axios.get("https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=codingbootcamp")
     .then(function(band){
-        let artist = JSON.parse(body)[0];
+        let artist = JSON.parse(artist);
         console.log("");
         console.log(
-            `Artist: ${artist[0].data.lineup[i]}\n`,
-            `Artist: ${artist[0].data.venue.name}\n`,
-            `Artist: ${artist[0].data.venue.city}\n`,
-            `Artist: ${artist[0].data.venue.country}\n`,
+            `Artist: ${artist.data.lineup}\n`,
+            `Artist: ${artist.data.venue.name}\n`,
+            `Artist: ${artist.data.venue.city}\n`,
+            `Artist: ${artist.data.venue.country}\n`,
         );
-        var concertDate = moment(artist[i].datetime).format("MM/DD/YY hh:00 A")
+        var concertDate = moment(artist.datetime).format("MM/DD/YY hh:00 A")
 
         console.log(`Date and Time of event: ${concertDate}\n - - - - -`);
     })
