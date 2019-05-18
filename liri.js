@@ -109,7 +109,7 @@ if (args[0] === "do-what-it-says"){
             }
         };
        
-if (dataArr[0] === "spotify-this") {
+if (dataArr[0] === "spotify-this-song") {
     if (dataArr[1] === undefined){
         spotifySong("The Sign")
          } else {
@@ -117,13 +117,13 @@ if (dataArr[0] === "spotify-this") {
             }
         };
         
-if (dataArr[0] === "concert-this"){
-    if (dataArr[1] === undefined){
-         getConcert("Mastodon")
-        } else {
-             getConcert(dataArr[1])
-            }
-        }
+//if (dataArr[0] === "concert-this"){
+//    if (dataArr[1] === undefined){
+//         getConcert("Mastodon")
+//        } else {
+//             getConcert(dataArr[1])
+//            }
+//       }
     });
 };
 
