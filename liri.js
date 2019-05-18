@@ -91,7 +91,8 @@ if(args[0] === "concert-this"){
     if(args[1] === undefined){
         getConcert("Mastodon")
         } else {
-             getConcert(dataArr[1])
+            let band = args.slice(1).join(" ");
+             getConcert(band)
     }
 }
 // Do what it says, runs through an example of our three types of commands
